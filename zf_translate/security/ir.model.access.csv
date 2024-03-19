@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_zf_prisma,access.zf.prisma,model_zf_prisma,group_prisma_admin,1,1,1,1
+access_zf.prisma_data,access.zf.prisma.data,model_zf_prisma_data,group_prisma_admin,1,1,1,1
+access_zf_translate_lines,access.zf.translate.lines,model_zf_translate_lines,group_prisma_admin,1,1,1,1

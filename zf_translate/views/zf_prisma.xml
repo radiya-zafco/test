@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_translate_form" model="ir.ui.view">
+        <field name="name">translate.form</field>
+        <field name="model">zf.prisma</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="prisma_file_xlsx"/>
+                            <field name="prisma_translate_file_xlsx" widget="binary"/>
+
+                        </group>
+                    </group>
+                    <group>
+                        <button name="action_button_translate" string="Process" type="object"/>
+                    </group>
+
+                    <field name="zf_translate_line_ids">
+                        <tree editable="bottom">
+                            <field name="date"/>
+                            <field name="document_name"/>
+                            <field name="analytic_debit"/>
+                            <field name="analytic_credit"/>
+                            <field name="debit_code"/>
+                            <field name="debit_amount"/>
+                            <field name="credit_code"/>
+                            <field name="credit_amount"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_translate_tree" model="ir.ui.view">
+        <field name="name">translate.tree</field>
+        <field name="model">zf.prisma</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_translate_excel" model="ir.actions.act_window">
+        <field name="name">Translate Excel</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">zf.prisma</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Translate Excel Report!
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_translate_excel"
+              name="Zf Prisma Excel"
+              sequence="1"/>
+    <menuitem id="menu_translate_excel_tree"
+              name="Translate Excel"
+              parent="menu_translate_excel"
+              action="zf_translate.action_translate_excel"
+              sequence="2"/>
+</odoo>

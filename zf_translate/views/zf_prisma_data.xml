@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_translate_data_form" model="ir.ui.view">
+        <field name="name">translate.data.form</field>
+        <field name="model">zf.prisma.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="source_data"/>
+                            <field name="source_lang"/>
+                        </group>
+                        <group>
+                            <field name="destination_data"/>
+                            <field name="destination_lang"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_translate_data_tree" model="ir.ui.view">
+        <field name="name">translate.data.tree</field>
+        <field name="model">zf.prisma.data</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="source_data"/>
+                <field name="destination_data"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_translate_data" model="ir.actions.act_window">
+        <field name="name">Translate Data</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">zf.prisma.data</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Translate Data!
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_translate_data"
+              name="Translate Data"
+              parent="menu_translate_excel"
+              action="zf_translate.action_translate_data"
+              sequence="3"/>
+</odoo>
